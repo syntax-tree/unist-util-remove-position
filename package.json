@@ -1,0 +1,54 @@
+{
+  "name": "unist-util-remove-position",
+  "version": "0.0.0",
+  "description": "Remove `position`s from a unist tree",
+  "license": "MIT",
+  "keywords": [
+    "unist",
+    "utility",
+    "remove",
+    "position",
+    "location"
+  ],
+  "files": [
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wooorm/unist-util-remove-position.git"
+  },
+  "bugs": "https://github.com/wooorm/unist-util-remove-position/issues",
+  "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
+  "dependencies": {
+    "unist-util-visit": "^1.0.0"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "eslint": "^1.0.0",
+    "esmangle": "^1.0.0",
+    "istanbul": "^0.4.0",
+    "jscs": "^2.0.0",
+    "jscs-jsdoc": "^1.0.0",
+    "remark": "^3.0.0",
+    "remark-comment-config": "^2.0.2",
+    "remark-github": "^4.0.0",
+    "remark-lint": "^2.0.2",
+    "remark-slug": "^4.0.0",
+    "remark-toc": "^2.0.1",
+    "remark-usage": "^2.1.0",
+    "remark-validate-links": "^2.0.2",
+    "tape": "^4.0.0"
+  },
+  "scripts": {
+    "build-md": "remark . --quiet --frail",
+    "build-bundle": "browserify index.js --bare -s unistUtilRemovePosition > unist-util-remove-position.js",
+    "build-mangle": "esmangle unist-util-remove-position.js > unist-util-remove-position.min.js",
+    "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
+    "lint-api": "eslint .",
+    "lint-style": "jscs --reporter inline .",
+    "lint": "npm run lint-api && npm run lint-style",
+    "test-api": "node test.js",
+    "test-coverage": "istanbul cover test.js",
+    "test": "npm run build && npm run lint && npm run test-coverage"
+  }
+}
