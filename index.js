@@ -10,11 +10,11 @@
 
 /* eslint-env commonjs */
 
-/*
- * Dependencies.
- */
-
+/* Dependencies. */
 var visit = require('unist-util-visit');
+
+/* Expose. */
+module.exports = removePosition;
 
 /**
  * Remove `position`s from `tree`.
@@ -22,16 +22,21 @@ var visit = require('unist-util-visit');
  * @param {Node} tree - Node.
  * @return {Node} - Node without `position`s.
  */
-function removePosition(tree) {
-    visit(tree, function (node) {
-        node.position = undefined;
-    });
-
-    return tree;
+function removePosition(node, force) {
+  visit(node, force ? hard : soft);
+  return node;
 }
 
-/*
- * Expose.
+/**
+ * Delete `position`.
  */
+function hard(node) {
+  delete node.position;
+}
 
-module.exports = removePosition;
+/**
+ * Remove `position` softly.
+ */
+function soft(node) {
+  node.position = undefined;
+}

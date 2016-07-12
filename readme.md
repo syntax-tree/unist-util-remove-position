@@ -1,5 +1,7 @@
 # unist-util-remove-position [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
 
+<!--lint disable heading-increment list-item-spacing-->
+
 Remove [`position`][position]s from a [unist][] tree.
 
 ## Installation
@@ -9,9 +11,6 @@ Remove [`position`][position]s from a [unist][] tree.
 ```bash
 npm install unist-util-remove-position
 ```
-
-**unist-util-remove-position** is also available as an AMD, CommonJS,
-and globals module, [uncompressed and compressed][releases].
 
 ## Usage
 
@@ -25,252 +24,123 @@ var removePosition = require('unist-util-remove-position');
 Tree:
 
 ```javascript
-var tree = remark.parse('Some **strong**, _emphasis_, and `code`.');
+var tree = remark().parse('Some **strong**, _emphasis_, and `code`.');
 ```
 
 Yields:
 
-```json
-{
-  "type": "root",
-  "children": [
-    {
-      "type": "paragraph",
-      "children": [
-        {
-          "type": "text",
-          "value": "Some ",
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 1
-            },
-            "end": {
-              "line": 1,
-              "column": 6
-            },
-            "indent": []
-          }
-        },
-        {
-          "type": "strong",
-          "children": [
-            {
-              "type": "text",
-              "value": "strong",
-              "position": {
-                "start": {
-                  "line": 1,
-                  "column": 8
-                },
-                "end": {
-                  "line": 1,
-                  "column": 14
-                },
-                "indent": []
-              }
-            }
-          ],
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 6
-            },
-            "end": {
-              "line": 1,
-              "column": 16
-            },
-            "indent": []
-          }
-        },
-        {
-          "type": "text",
-          "value": ", ",
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 16
-            },
-            "end": {
-              "line": 1,
-              "column": 18
-            },
-            "indent": []
-          }
-        },
-        {
-          "type": "emphasis",
-          "children": [
-            {
-              "type": "text",
-              "value": "emphasis",
-              "position": {
-                "start": {
-                  "line": 1,
-                  "column": 19
-                },
-                "end": {
-                  "line": 1,
-                  "column": 27
-                },
-                "indent": []
-              }
-            }
-          ],
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 18
-            },
-            "end": {
-              "line": 1,
-              "column": 28
-            },
-            "indent": []
-          }
-        },
-        {
-          "type": "text",
-          "value": ", and ",
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 28
-            },
-            "end": {
-              "line": 1,
-              "column": 34
-            },
-            "indent": []
-          }
-        },
-        {
-          "type": "inlineCode",
-          "value": "code",
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 34
-            },
-            "end": {
-              "line": 1,
-              "column": 40
-            },
-            "indent": []
-          }
-        },
-        {
-          "type": "text",
-          "value": ".",
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 40
-            },
-            "end": {
-              "line": 1,
-              "column": 41
-            },
-            "indent": []
-          }
-        }
-      ],
-      "position": {
-        "start": {
-          "line": 1,
-          "column": 1
-        },
-        "end": {
-          "line": 1,
-          "column": 41
-        },
-        "indent": []
-      }
-    }
-  ],
-  "position": {
-    "start": {
-      "line": 1,
-      "column": 1
-    },
-    "end": {
-      "line": 1,
-      "column": 41
-    }
-  }
-}
+```js
+{ type: 'root',
+  children: 
+   [ { type: 'paragraph',
+       children: 
+        [ { type: 'text',
+            value: 'Some ',
+            position: 
+             Position {
+               start: { line: 1, column: 1, offset: 0 },
+               end: { line: 1, column: 6, offset: 5 },
+               indent: [] } },
+          { type: 'strong',
+            children: 
+             [ { type: 'text',
+                 value: 'strong',
+                 position: 
+                  Position {
+                    start: { line: 1, column: 8, offset: 7 },
+                    end: { line: 1, column: 14, offset: 13 },
+                    indent: [] } } ],
+            position: 
+             Position {
+               start: { line: 1, column: 6, offset: 5 },
+               end: { line: 1, column: 16, offset: 15 },
+               indent: [] } },
+          { type: 'text',
+            value: ', ',
+            position: 
+             Position {
+               start: { line: 1, column: 16, offset: 15 },
+               end: { line: 1, column: 18, offset: 17 },
+               indent: [] } },
+          { type: 'emphasis',
+            children: 
+             [ { type: 'text',
+                 value: 'emphasis',
+                 position: 
+                  Position {
+                    start: { line: 1, column: 19, offset: 18 },
+                    end: { line: 1, column: 27, offset: 26 },
+                    indent: [] } } ],
+            position: 
+             Position {
+               start: { line: 1, column: 18, offset: 17 },
+               end: { line: 1, column: 28, offset: 27 },
+               indent: [] } },
+          { type: 'text',
+            value: ', and ',
+            position: 
+             Position {
+               start: { line: 1, column: 28, offset: 27 },
+               end: { line: 1, column: 34, offset: 33 },
+               indent: [] } },
+          { type: 'inlineCode',
+            value: 'code',
+            position: 
+             Position {
+               start: { line: 1, column: 34, offset: 33 },
+               end: { line: 1, column: 40, offset: 39 },
+               indent: [] } },
+          { type: 'text',
+            value: '.',
+            position: 
+             Position {
+               start: { line: 1, column: 40, offset: 39 },
+               end: { line: 1, column: 41, offset: 40 },
+               indent: [] } } ],
+       position: 
+        Position {
+          start: { line: 1, column: 1, offset: 0 },
+          end: { line: 1, column: 41, offset: 40 },
+          indent: [] } } ],
+  position: 
+   { start: { line: 1, column: 1, offset: 0 },
+     end: { line: 1, column: 41, offset: 40 } } }
 ```
 
 Removing position from tree:
 
 ```javascript
-tree = removePosition(tree);
+tree = removePosition(tree, true);
 ```
 
 Yields:
 
-```json
-{
-  "type": "root",
-  "children": [
-    {
-      "type": "paragraph",
-      "children": [
-        {
-          "type": "text",
-          "value": "Some "
-        },
-        {
-          "type": "strong",
-          "children": [
-            {
-              "type": "text",
-              "value": "strong"
-            }
-          ]
-        },
-        {
-          "type": "text",
-          "value": ", "
-        },
-        {
-          "type": "emphasis",
-          "children": [
-            {
-              "type": "text",
-              "value": "emphasis"
-            }
-          ]
-        },
-        {
-          "type": "text",
-          "value": ", and "
-        },
-        {
-          "type": "inlineCode",
-          "value": "code"
-        },
-        {
-          "type": "text",
-          "value": "."
-        }
-      ]
-    }
-  ]
-}
+```js
+{ type: 'root',
+  children: 
+   [ { type: 'paragraph',
+       children: 
+        [ { type: 'text', value: 'Some ' },
+          { type: 'strong',
+            children: [ { type: 'text', value: 'strong' } ] },
+          { type: 'text', value: ', ' },
+          { type: 'emphasis',
+            children: [ { type: 'text', value: 'emphasis' } ] },
+          { type: 'text', value: ', and ' },
+          { type: 'inlineCode', value: 'code' },
+          { type: 'text', value: '.' } ] } ] }
 ```
 
 ## API
 
-### `removePosition(tree)`
+### `removePosition(node[, force])`
 
-Remove [`position`][position]s from `tree`.
+Remove [`position`][position]s from [`node`][node].  If `force` is given,
+uses `delete`, otherwise, sets `position`s to `undefined`.
 
-**Parameters**:
+###### Returns
 
-*   `tree` ([`Node`][node]).
-
-**Returns**: [`Node`][node] — `tree` without [`position`][position]s.
+The given `node`.
 
 ## License
 
@@ -287,8 +157,6 @@ Remove [`position`][position]s from `tree`.
 [codecov]: https://codecov.io/github/wooorm/unist-util-remove-position
 
 [npm-install]: https://docs.npmjs.com/cli/install
-
-[releases]: https://github.com/wooorm/unist-util-remove-position/releases
 
 [license]: LICENSE
 
