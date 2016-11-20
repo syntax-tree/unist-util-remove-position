@@ -1,8 +1,6 @@
 # unist-util-remove-position [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
 
-<!--lint disable heading-increment list-item-spacing-->
-
-Remove [`position`][position]s from a [unist][] tree.
+Remove [`position`][position]s from a [Unist][] tree.
 
 ## Installation
 
@@ -31,78 +29,78 @@ Yields:
 
 ```js
 { type: 'root',
-  children: 
+  children:
    [ { type: 'paragraph',
-       children: 
+       children:
         [ { type: 'text',
             value: 'Some ',
-            position: 
+            position:
              Position {
                start: { line: 1, column: 1, offset: 0 },
                end: { line: 1, column: 6, offset: 5 },
                indent: [] } },
           { type: 'strong',
-            children: 
+            children:
              [ { type: 'text',
                  value: 'strong',
-                 position: 
+                 position:
                   Position {
                     start: { line: 1, column: 8, offset: 7 },
                     end: { line: 1, column: 14, offset: 13 },
                     indent: [] } } ],
-            position: 
+            position:
              Position {
                start: { line: 1, column: 6, offset: 5 },
                end: { line: 1, column: 16, offset: 15 },
                indent: [] } },
           { type: 'text',
             value: ', ',
-            position: 
+            position:
              Position {
                start: { line: 1, column: 16, offset: 15 },
                end: { line: 1, column: 18, offset: 17 },
                indent: [] } },
           { type: 'emphasis',
-            children: 
+            children:
              [ { type: 'text',
                  value: 'emphasis',
-                 position: 
+                 position:
                   Position {
                     start: { line: 1, column: 19, offset: 18 },
                     end: { line: 1, column: 27, offset: 26 },
                     indent: [] } } ],
-            position: 
+            position:
              Position {
                start: { line: 1, column: 18, offset: 17 },
                end: { line: 1, column: 28, offset: 27 },
                indent: [] } },
           { type: 'text',
             value: ', and ',
-            position: 
+            position:
              Position {
                start: { line: 1, column: 28, offset: 27 },
                end: { line: 1, column: 34, offset: 33 },
                indent: [] } },
           { type: 'inlineCode',
             value: 'code',
-            position: 
+            position:
              Position {
                start: { line: 1, column: 34, offset: 33 },
                end: { line: 1, column: 40, offset: 39 },
                indent: [] } },
           { type: 'text',
             value: '.',
-            position: 
+            position:
              Position {
                start: { line: 1, column: 40, offset: 39 },
                end: { line: 1, column: 41, offset: 40 },
                indent: [] } } ],
-       position: 
+       position:
         Position {
           start: { line: 1, column: 1, offset: 0 },
           end: { line: 1, column: 41, offset: 40 },
           indent: [] } } ],
-  position: 
+  position:
    { start: { line: 1, column: 1, offset: 0 },
      end: { line: 1, column: 41, offset: 40 } } }
 ```
@@ -117,9 +115,9 @@ Yields:
 
 ```js
 { type: 'root',
-  children: 
+  children:
    [ { type: 'paragraph',
-       children: 
+       children:
         [ { type: 'text', value: 'Some ' },
           { type: 'strong',
             children: [ { type: 'text', value: 'strong' } ] },
