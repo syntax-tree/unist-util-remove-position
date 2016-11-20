@@ -4,7 +4,7 @@ Remove [`position`][position]s from a [Unist][] tree.
 
 ## Installation
 
-[npm][npm-install]:
+[npm][]:
 
 ```bash
 npm install unist-util-remove-position
@@ -12,103 +12,14 @@ npm install unist-util-remove-position
 
 ## Usage
 
-Dependencies:
-
 ```javascript
+var inspect = require('util').inspect;
 var remark = require('remark');
-var removePosition = require('unist-util-remove-position');
-```
+var removePosition = require('./');
 
-Tree:
+var tree = remark().parse('Some **importance**, _emphasis_, and `code`.');
 
-```javascript
-var tree = remark().parse('Some **strong**, _emphasis_, and `code`.');
-```
-
-Yields:
-
-```js
-{ type: 'root',
-  children:
-   [ { type: 'paragraph',
-       children:
-        [ { type: 'text',
-            value: 'Some ',
-            position:
-             Position {
-               start: { line: 1, column: 1, offset: 0 },
-               end: { line: 1, column: 6, offset: 5 },
-               indent: [] } },
-          { type: 'strong',
-            children:
-             [ { type: 'text',
-                 value: 'strong',
-                 position:
-                  Position {
-                    start: { line: 1, column: 8, offset: 7 },
-                    end: { line: 1, column: 14, offset: 13 },
-                    indent: [] } } ],
-            position:
-             Position {
-               start: { line: 1, column: 6, offset: 5 },
-               end: { line: 1, column: 16, offset: 15 },
-               indent: [] } },
-          { type: 'text',
-            value: ', ',
-            position:
-             Position {
-               start: { line: 1, column: 16, offset: 15 },
-               end: { line: 1, column: 18, offset: 17 },
-               indent: [] } },
-          { type: 'emphasis',
-            children:
-             [ { type: 'text',
-                 value: 'emphasis',
-                 position:
-                  Position {
-                    start: { line: 1, column: 19, offset: 18 },
-                    end: { line: 1, column: 27, offset: 26 },
-                    indent: [] } } ],
-            position:
-             Position {
-               start: { line: 1, column: 18, offset: 17 },
-               end: { line: 1, column: 28, offset: 27 },
-               indent: [] } },
-          { type: 'text',
-            value: ', and ',
-            position:
-             Position {
-               start: { line: 1, column: 28, offset: 27 },
-               end: { line: 1, column: 34, offset: 33 },
-               indent: [] } },
-          { type: 'inlineCode',
-            value: 'code',
-            position:
-             Position {
-               start: { line: 1, column: 34, offset: 33 },
-               end: { line: 1, column: 40, offset: 39 },
-               indent: [] } },
-          { type: 'text',
-            value: '.',
-            position:
-             Position {
-               start: { line: 1, column: 40, offset: 39 },
-               end: { line: 1, column: 41, offset: 40 },
-               indent: [] } } ],
-       position:
-        Position {
-          start: { line: 1, column: 1, offset: 0 },
-          end: { line: 1, column: 41, offset: 40 },
-          indent: [] } } ],
-  position:
-   { start: { line: 1, column: 1, offset: 0 },
-     end: { line: 1, column: 41, offset: 40 } } }
-```
-
-Removing position from tree:
-
-```javascript
-tree = removePosition(tree, true);
+console.log(inspect(removePosition(tree, true), {depth: null}));
 ```
 
 Yields:
@@ -120,7 +31,7 @@ Yields:
        children:
         [ { type: 'text', value: 'Some ' },
           { type: 'strong',
-            children: [ { type: 'text', value: 'strong' } ] },
+            children: [ { type: 'text', value: 'importance' } ] },
           { type: 'text', value: ', ' },
           { type: 'emphasis',
             children: [ { type: 'text', value: 'emphasis' } ] },
@@ -154,7 +65,7 @@ The given `node`.
 
 [codecov]: https://codecov.io/github/wooorm/unist-util-remove-position
 
-[npm-install]: https://docs.npmjs.com/cli/install
+[npm]: https://docs.npmjs.com/cli/install
 
 [license]: LICENSE
 
