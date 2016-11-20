@@ -1,22 +1,10 @@
-/**
- * @author Titus Wormer
- * @copyright 2016 Titus Wormer
- * @license MIT
- * @module unist-util-remove-position
- * @fileoverview Test suite for `unist-util-remove-position`.
- */
-
 'use strict';
 
-/* eslint-env node */
-
-/* Dependencies. */
 var test = require('tape');
 var u = require('unist-builder');
 var remark = require('remark');
 var removePosition = require('./index.js');
 
-/* Tests. */
 test('removePosition()', function (t) {
   var empty = {position: undefined};
 
