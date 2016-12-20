@@ -57,13 +57,13 @@ The given `node`.
 
 <!-- Definitions -->
 
-[travis-badge]: https://img.shields.io/travis/wooorm/unist-util-remove-position.svg
+[travis-badge]: https://img.shields.io/travis/syntax-tree/unist-util-remove-position.svg
 
-[travis]: https://travis-ci.org/wooorm/unist-util-remove-position
+[travis]: https://travis-ci.org/syntax-tree/unist-util-remove-position
 
-[codecov-badge]: https://img.shields.io/codecov/c/github/wooorm/unist-util-remove-position.svg
+[codecov-badge]: https://img.shields.io/codecov/c/github/syntax-tree/unist-util-remove-position.svg
 
-[codecov]: https://codecov.io/github/wooorm/unist-util-remove-position
+[codecov]: https://codecov.io/github/syntax-tree/unist-util-remove-position
 
 [npm]: https://docs.npmjs.com/cli/install
 
@@ -71,8 +71,8 @@ The given `node`.
 
 [author]: http://wooorm.com
 
-[unist]: https://github.com/wooorm/unist
+[unist]: https://github.com/syntax-tree/unist
 
-[position]: https://github.com/wooorm/unist#position
+[position]: https://github.com/syntax-tree/unist#position
 
-[node]: https://github.com/wooorm/unist#node
+[node]: https://github.com/syntax-tree/unist#node
