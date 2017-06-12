@@ -13,13 +13,12 @@ npm install unist-util-remove-position
 ## Usage
 
 ```javascript
-var inspect = require('util').inspect;
 var remark = require('remark');
-var removePosition = require('./');
+var removePosition = require('unist-util-remove-position');
 
-var tree = remark().parse('Some **importance**, _emphasis_, and `code`.');
+var tree = remark().parse('Some _emphasis_, **importance**, and `code`.');
 
-console.log(inspect(removePosition(tree, true), {depth: null}));
+console.dir(removePosition(tree, true), {depth: null});
 ```
 
 Yields:
@@ -30,11 +29,11 @@ Yields:
    [ { type: 'paragraph',
        children:
         [ { type: 'text', value: 'Some ' },
-          { type: 'strong',
-            children: [ { type: 'text', value: 'importance' } ] },
-          { type: 'text', value: ', ' },
           { type: 'emphasis',
             children: [ { type: 'text', value: 'emphasis' } ] },
+          { type: 'text', value: ', ' },
+          { type: 'strong',
+            children: [ { type: 'text', value: 'importance' } ] },
           { type: 'text', value: ', and ' },
           { type: 'inlineCode', value: 'code' },
           { type: 'text', value: '.' } ] } ] }
