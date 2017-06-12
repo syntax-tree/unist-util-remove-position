@@ -25,13 +25,13 @@
   "devDependencies": {
     "browserify": "^14.0.0",
     "esmangle": "^1.0.1",
-    "nyc": "^10.0.0",
+    "nyc": "^11.0.0",
     "remark": "^7.0.0",
     "remark-cli": "^3.0.0",
-    "remark-preset-wooorm": "^2.0.0",
+    "remark-preset-wooorm": "^3.0.0",
     "tape": "^4.0.0",
     "unist-builder": "^1.0.2",
-    "xo": "^0.17.1"
+    "xo": "^0.18.2"
   },
   "scripts": {
     "build-md": "remark . -qfo",
@@ -45,6 +45,7 @@
   },
   "xo": {
     "space": true,
+    "esnext": false,
     "ignores": [
       "unist-util-remove-position.js"
     ]
@@ -56,6 +57,8 @@
     "branches": 100
   },
   "remarkConfig": {
-    "plugins": ["preset-wooorm"]
+    "plugins": [
+      "preset-wooorm"
+    ]
   }
 }
