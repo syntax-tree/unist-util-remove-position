@@ -50,6 +50,14 @@ uses `delete`, otherwise, sets `position`s to `undefined`.
 
 The given `node`.
 
+## Contribute
+
+See [`contribute.md` in `syntax-tree/unist`][contribute] for ways to get
+started.
+
+This organisation has a [Code of Conduct][coc].  By interacting with this
+repository, organisation, or community you agree to abide by its terms.
+
 ## License
 
 [MIT][license] © [Titus Wormer][author]
@@ -75,3 +83,7 @@ The given `node`.
 [position]: https://github.com/syntax-tree/unist#position
 
 [node]: https://github.com/syntax-tree/unist#node
+
+[contribute]: https://github.com/syntax-tree/unist/blob/master/contributing.md
+
+[coc]: https://github.com/syntax-tree/unist/blob/master/code-of-conduct.md
