@@ -1,12 +1,12 @@
-'use strict';
+'use strict'
 
-var test = require('tape');
-var u = require('unist-builder');
-var remark = require('remark');
-var removePosition = require('.');
+var test = require('tape')
+var u = require('unist-builder')
+var remark = require('remark')
+var removePosition = require('.')
 
-test('removePosition()', function (t) {
-  var empty = {position: undefined};
+test('removePosition()', function(t) {
+  var empty = {position: undefined}
 
   t.same(
     removePosition(remark().parse('Some **strong**, _emphasis_, and `code`.')),
@@ -22,7 +22,7 @@ test('removePosition()', function (t) {
       ])
     ]),
     'should work softly'
-  );
+  )
 
   t.same(
     removePosition(
@@ -41,7 +41,7 @@ test('removePosition()', function (t) {
       ])
     ]),
     'should work by force'
-  );
+  )
 
-  t.end();
-});
+  t.end()
+})

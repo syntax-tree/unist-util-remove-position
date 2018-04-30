@@ -13,12 +13,12 @@ npm install unist-util-remove-position
 ## Usage
 
 ```javascript
-var remark = require('remark');
-var removePosition = require('unist-util-remove-position');
+var remark = require('remark')
+var removePosition = require('unist-util-remove-position')
 
-var tree = remark().parse('Some _emphasis_, **importance**, and `code`.');
+var tree = remark().parse('Some _emphasis_, **importance**, and `code`.')
 
-console.dir(removePosition(tree, true), {depth: null});
+console.dir(removePosition(tree, true), {depth: null})
 ```
 
 Yields:
