@@ -3,7 +3,7 @@
 var test = require('tape');
 var u = require('unist-builder');
 var remark = require('remark');
-var removePosition = require('./index.js');
+var removePosition = require('.');
 
 test('removePosition()', function (t) {
   var empty = {position: undefined};
