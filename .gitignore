@@ -5,3 +5,4 @@ coverage/
 node_modules/
 unist-util-remove-position.js
 unist-util-remove-position.min.js
+yarn.lock
