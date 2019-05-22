@@ -8,51 +8,63 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-Remove [`position`][position]s from a [Unist][] tree.
+[**unist**][unist] utility to remove [`position`][position]s from tree.
 
-## Installation
+## Install
 
 [npm][]:
 
-```bash
+```sh
 npm install unist-util-remove-position
 ```
 
 ## Usage
 
-```javascript
+```js
 var remark = require('remark')
 var removePosition = require('unist-util-remove-position')
 
 var tree = remark().parse('Some _emphasis_, **importance**, and `code`.')
 
-console.dir(removePosition(tree, true), {depth: null})
+removePosition(tree, true)
+
+console.dir(tree, {depth: null})
 ```
 
 Yields:
 
 ```js
-{ type: 'root',
-  children:
-   [ { type: 'paragraph',
-       children:
-        [ { type: 'text', value: 'Some ' },
-          { type: 'emphasis',
-            children: [ { type: 'text', value: 'emphasis' } ] },
-          { type: 'text', value: ', ' },
-          { type: 'strong',
-            children: [ { type: 'text', value: 'importance' } ] },
-          { type: 'text', value: ', and ' },
-          { type: 'inlineCode', value: 'code' },
-          { type: 'text', value: '.' } ] } ] }
+{
+  type: 'root',
+  children: [
+    {
+      type: 'paragraph',
+      children: [
+        { type: 'text', value: 'Some ' },
+        {
+          type: 'emphasis',
+          children: [ { type: 'text', value: 'emphasis' } ]
+        },
+        { type: 'text', value: ', ' },
+        {
+          type: 'strong',
+          children: [ { type: 'text', value: 'importance' } ]
+        },
+        { type: 'text', value: ', and ' },
+        { type: 'inlineCode', value: 'code' },
+        { type: 'text', value: '.' }
+      ]
+    }
+  ]
+}
 ```
 
 ## API
 
 ### `removePosition(node[, force])`
 
-Remove [`position`][position]s from [`node`][node].  If `force` is given,
-uses `delete`, otherwise, sets `position`s to `undefined`.
+Remove [`position`][position]s from [`node`][node].
+If `force` is given, uses `delete`, otherwise, sets `position`s to `undefined`.
 
 ###### Returns
 
@@ -60,11 +72,13 @@ The given `node`.
 
 ## Contribute
 
-See [`contributing.md` in `syntax-tree/unist`][contributing] for ways to get
+See [`contributing.md` in `syntax-tree/.github`][contributing] for ways to get
 started.
+See [`support.md`][support] for ways to get help.
 
-This organisation has a [Code of Conduct][coc].  By interacting with this
-repository, organisation, or community you agree to abide by its terms.
+This project has a [Code of Conduct][coc].
+By interacting with this repository, organisation, or community you agree to
+abide by its terms.
 
 ## License
 
@@ -104,12 +118,14 @@ repository, organisation, or community you agree to abide by its terms.
 
 [author]: https://wooorm.com
 
+[contributing]: https://github.com/syntax-tree/.github/blob/master/contributing.md
+
+[support]: https://github.com/syntax-tree/.github/blob/master/support.md
+
+[coc]: https://github.com/syntax-tree/.github/blob/master/code-of-conduct.md
+
 [unist]: https://github.com/syntax-tree/unist
 
 [position]: https://github.com/syntax-tree/unist#position
 
 [node]: https://github.com/syntax-tree/unist#node
-
-[contributing]: https://github.com/syntax-tree/unist/blob/master/contributing.md
-
-[coc]: https://github.com/syntax-tree/unist/blob/master/code-of-conduct.md
