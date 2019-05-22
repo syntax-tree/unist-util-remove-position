@@ -35,7 +35,7 @@
     "xo": "^0.23.0"
   },
   "scripts": {
-    "format": "remark . -qfo && prettier --write '**/*.js' && xo --fix",
+    "format": "remark . -qfo && prettier --write \"**/*.js\" && xo --fix",
     "build-bundle": "browserify . -s unistUtilRemovePosition > unist-util-remove-position.js",
     "build-mangle": "browserify . -s unistUtilRemovePosition -p tinyify > unist-util-remove-position.min.js",
     "build": "npm run build-bundle && npm run build-mangle",
