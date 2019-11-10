@@ -1,6 +1,6 @@
 {
   "name": "unist-util-remove-position",
-  "version": "1.1.4",
+  "version": "2.0.0",
   "description": "Remove `position`s from a unist tree",
   "license": "MIT",
   "keywords": [
