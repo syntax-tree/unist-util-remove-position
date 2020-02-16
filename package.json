@@ -1,14 +1,18 @@
 {
   "name": "unist-util-remove-position",
   "version": "2.0.0",
-  "description": "Remove `position`s from a unist tree",
+  "description": "unist utility to remove positions from a tree",
   "license": "MIT",
   "keywords": [
     "unist",
+    "unist-util",
+    "util",
     "utility",
     "remove",
     "position",
-    "location"
+    "location",
+    "clean",
+    "force"
   ],
   "repository": "syntax-tree/unist-util-remove-position",
   "bugs": "https://github.com/syntax-tree/unist-util-remove-position/issues",
