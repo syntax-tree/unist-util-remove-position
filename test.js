@@ -5,7 +5,7 @@ var u = require('unist-builder')
 var remark = require('remark')
 var removePosition = require('.')
 
-test('removePosition()', function(t) {
+test('removePosition()', function (t) {
   var empty = {position: undefined}
 
   t.same(
