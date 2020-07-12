@@ -1,6 +1,6 @@
 import {Node} from 'unist'
 
-import * as removePosition from 'unist-util-remove-position'
+import removePosition = require('unist-util-remove-position')
 
 const tree: Node = {
   type: 'root',
