@@ -22,16 +22,20 @@
   },
   "author": "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
   "contributors": [
-    "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
+    "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
+    "Merlijn Vos <merlijn@soverin.net>"
   ],
   "files": [
-    "index.js"
+    "index.js",
+    "types/index.d.ts"
   ],
+  "types": "types/index.d.ts",
   "dependencies": {
     "unist-util-visit": "^2.0.0"
   },
   "devDependencies": {
     "browserify": "^16.0.0",
+    "dtslint": "^3.6.12",
     "nyc": "^15.0.0",
     "prettier": "^2.0.0",
     "remark": "^12.0.0",
@@ -39,6 +43,7 @@
     "remark-preset-wooorm": "^7.0.0",
     "tape": "^5.0.0",
     "tinyify": "^2.0.0",
+    "type-fest": "^0.16.0",
     "unist-builder": "^2.0.0",
     "xo": "^0.32.0"
   },
@@ -47,9 +52,10 @@
     "build-bundle": "browserify . -s unistUtilRemovePosition > unist-util-remove-position.js",
     "build-mangle": "browserify . -s unistUtilRemovePosition -p tinyify > unist-util-remove-position.min.js",
     "build": "npm run build-bundle && npm run build-mangle",
+    "test-types": "dtslint types",
     "test-api": "node test",
     "test-coverage": "nyc --reporter lcov tape test.js",
-    "test": "npm run format && npm run build && npm run test-coverage"
+    "test": "npm run format && npm run build && npm run test-coverage && npm run test-types"
   },
   "prettier": {
     "tabWidth": 2,
