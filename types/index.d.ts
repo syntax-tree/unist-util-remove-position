@@ -1,14 +1,17 @@
 // TypeScript Version: 3.5
 
-import {Node} from 'unist'
-import {Except} from 'type-fest'
+import {Node, Data} from 'unist'
 
 declare namespace unistUtilRemovePosition {
   interface NodeWithUndefinedPosition extends Node {
     position: undefined
   }
 
-  type NodeWithoutPosition = Except<Node, 'position'>
+  interface NodeWithoutPosition {
+    [key: string]: unknown
+    type: string
+    data?: Data
+  }
 }
 
 /* Utility to remove positions from a tree */

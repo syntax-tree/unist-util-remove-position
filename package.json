@@ -43,7 +43,6 @@
     "remark-preset-wooorm": "^7.0.0",
     "tape": "^5.0.0",
     "tinyify": "^2.0.0",
-    "type-fest": "^0.16.0",
     "unist-builder": "^2.0.0",
     "xo": "^0.32.0"
   },
