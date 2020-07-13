@@ -8,6 +8,9 @@ const tree: Node = remark().parse(
   'Some _emphasis_, **importance**, and `code`.'
 )
 
+remark()
+  .use(() => (tree) => removePosition(tree))
+  .process('Some _emphasis_, **importance**, and `code`.')
 // $ExpectType NodeWithUndefinedPosition
 removePosition(tree)
 
