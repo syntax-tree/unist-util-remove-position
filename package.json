@@ -68,6 +68,7 @@
     "prettier": true,
     "esnext": false,
     "ignores": [
+      "unist-util-remove-position.js",
       "types/"
     ]
   },
