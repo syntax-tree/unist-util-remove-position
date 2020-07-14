@@ -14,7 +14,12 @@ declare namespace unistUtilRemovePosition {
   }
 }
 
-/* Utility to remove positions from a tree */
+/**
+ * Utility to remove positions from a tree
+ *
+ * @param node the unist tree
+ * @param force if `force` is given, uses `delete`, otherwise, sets positions to `undefined`.
+ */
 declare function unistUtilRemovePosition(
   tree: Node,
   force?: false

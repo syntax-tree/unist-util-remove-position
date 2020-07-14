@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "browserify": "^16.0.0",
-    "dtslint": "^3.6.12",
+    "dtslint": "^3.0.0",
     "nyc": "^15.0.0",
     "prettier": "^2.0.0",
     "remark": "^12.0.0",
@@ -68,7 +68,7 @@
     "prettier": true,
     "esnext": false,
     "ignores": [
-      "unist-util-remove-position.js"
+      "types/"
     ]
   },
   "nyc": {
