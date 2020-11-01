@@ -5,14 +5,15 @@ var visit = require('unist-util-visit')
 module.exports = removePosition
 
 function removePosition(node, force) {
-  visit(node, force ? hard : soft)
+  visit(node, remove)
+
   return node
-}
 
-function hard(node) {
-  delete node.position
-}
-
-function soft(node) {
-  node.position = undefined
+  function remove(node) {
+    if (force) {
+      delete node.position
+    } else {
+      node.position = undefined
+    }
+  }
 }
