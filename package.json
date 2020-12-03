@@ -44,12 +44,12 @@
     "tape": "^5.0.0",
     "tinyify": "^3.0.0",
     "unist-builder": "^2.0.0",
-    "xo": "^0.34.0"
+    "xo": "^0.35.0"
   },
   "scripts": {
     "format": "remark . -qfo && prettier . -w --loglevel warn && xo --fix",
-    "build-bundle": "browserify . -s unistUtilRemovePosition > unist-util-remove-position.js",
-    "build-mangle": "browserify . -s unistUtilRemovePosition -p tinyify > unist-util-remove-position.min.js",
+    "build-bundle": "browserify . -s unistUtilRemovePosition -o unist-util-remove-position.js",
+    "build-mangle": "browserify . -s unistUtilRemovePosition -o unist-util-remove-position.min.js -p tinyify",
     "build": "npm run build-bundle && npm run build-mangle",
     "test-types": "dtslint types",
     "test-api": "node test",
