@@ -1,10 +1,6 @@
-'use strict'
+import {visit} from 'unist-util-visit'
 
-var visit = require('unist-util-visit')
-
-module.exports = removePosition
-
-function removePosition(node, force) {
+export function removePosition(node, force) {
   visit(node, remove)
 
   return node

@@ -1,9 +1,7 @@
-'use strict'
-
-var test = require('tape')
-var u = require('unist-builder')
-var remark = require('remark')
-var removePosition = require('.')
+import test from 'tape'
+import remark from 'remark'
+import {u} from 'unist-builder'
+import {removePosition} from './index.js'
 
 test('removePosition()', function (t) {
   var empty = {position: undefined}

@@ -1,5 +1,2 @@
 coverage/
-unist-util-remove-position.js
-unist-util-remove-position.min.js
-*.json
 *.md

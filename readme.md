@@ -12,6 +12,9 @@
 
 ## Install
 
+This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
+Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
+
 [npm][]:
 
 ```sh
@@ -21,8 +24,8 @@ npm install unist-util-remove-position
 ## Use
 
 ```js
-var remark = require('remark')
-var removePosition = require('unist-util-remove-position')
+import remark from 'remark'
+import {removePosition} from 'unist-util-remove-position'
 
 var tree = remark().parse('Some _emphasis_, **importance**, and `code`.')
 
@@ -54,6 +57,9 @@ Yields:
 ```
 
 ## API
+
+This package exports the following identifiers: `removePosition`.
+There is no default export.
 
 ### `removePosition(node[, force])`
 
