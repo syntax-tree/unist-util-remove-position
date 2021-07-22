@@ -27,7 +27,7 @@ npm install unist-util-remove-position
 import remark from 'remark'
 import {removePosition} from 'unist-util-remove-position'
 
-var tree = remark().parse('Some _emphasis_, **importance**, and `code`.')
+const tree = remark().parse('Some _emphasis_, **importance**, and `code`.')
 
 removePosition(tree, true)
 

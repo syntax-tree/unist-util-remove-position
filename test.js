@@ -3,8 +3,8 @@ import remark from 'remark'
 import {u} from 'unist-builder'
 import {removePosition} from './index.js'
 
-test('removePosition()', function (t) {
-  var empty = {position: undefined}
+test('removePosition()', (t) => {
+  const empty = {position: undefined}
 
   t.same(
     removePosition(remark().parse('Some **strong**, _emphasis_, and `code`.')),
