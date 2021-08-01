@@ -1,25 +1,29 @@
 /**
  * @typedef {import('unist').Node} Node
- * @typedef {Node & {position: undefined}} NodeWithUndefinedPosition
- * @typedef {Omit<Node, 'position'>} NodeWithoutPosition
  */
 
 import {visit} from 'unist-util-visit'
 
+/**
+ * Utility to remove positions from a tree
+ *
+ * @param node The unist tree
+ * @param force if `force` is given, uses `delete`, otherwise, sets positions to `undefined`.
+ * @returns The same node, but either with `position: undefined` or w/o `position` fields
+ */
 export const removePosition =
   /**
    * @type {(
-   *   ((tree: Node, force?: false) => NodeWithUndefinedPosition) &
-   *   ((tree: Node, force: true) => NodeWithoutPosition)
+   *   (<Tree extends Node>(tree: Tree, force?: false) => Tree) &
+   *   (<Tree extends Node>(tree: Tree, force: true) => Tree)
    * )}
    */
   (
     /**
-     * Utility to remove positions from a tree
-     *
-     * @param {Node} node the unist tree
-     * @param {boolean} [force=false] if `force` is given, uses `delete`, otherwise, sets positions to `undefined`.
-     * @returns {NodeWithUndefinedPosition}
+     * @template {Node} Tree
+     * @param {Tree} node
+     * @param {boolean} [force=false]
+     * @returns {Tree}
      */
     function (node, force) {
       visit(node, remove)

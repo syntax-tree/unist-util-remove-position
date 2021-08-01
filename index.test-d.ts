@@ -1,19 +1,15 @@
 import {expectType} from 'tsd'
 import {Node} from 'unist'
+import {Root} from 'mdast'
 import remark from 'remark'
-import {
-  removePosition,
-  NodeWithUndefinedPosition,
-  NodeWithoutPosition
-} from './index.js'
+import {removePosition} from './index.js'
 
-const tree: Node = remark().parse(
-  'Some _emphasis_, **importance**, and `code`.'
-)
+const tree: Root = {type: 'root', children: []}
 
-expectType<NodeWithUndefinedPosition>(removePosition(tree))
-expectType<NodeWithUndefinedPosition>(removePosition(tree, false))
-expectType<NodeWithoutPosition>(removePosition(tree, true))
+expectType<Root>(removePosition(tree))
+expectType<Root>(removePosition(tree, false))
+expectType<Root>(removePosition(tree, true))
+expectType<Root>(removePosition(tree, true))
 
 // Used as a plugin
 void remark()
