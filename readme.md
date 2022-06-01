@@ -8,26 +8,74 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-[**unist**][unist] utility to remove [`position`][position]s from tree.
+[unist][] utility to create a remove positional info from a tree.
+
+## Contents
+
+*   [What is this?](#what-is-this)
+*   [When should I use this?](#when-should-i-use-this)
+*   [Install](#install)
+*   [Use](#use)
+*   [API](#api)
+    *   [`removePosition(node[, force])`](#removepositionnode-force)
+*   [Types](#types)
+*   [Compatibility](#compatibility)
+*   [Contribute](#contribute)
+*   [License](#license)
+
+## What is this?
+
+This is a small utility that helps you remove the `position` field from nodes in
+a unist tree.
+
+## When should I use this?
+
+Often, positional info is the whole reason, or an important reason, for using
+ASTs.
+Sometimes, especially when comparing trees, or when inserting one tree into
+another, the positional info is at best useless and at worst harmful.
+In those cases, you can use this utility to remove `position` fields from a
+tree.
+
+You might find the utility [`unist-util-position`][unist-util-position]
+useful to instead get clean position info from a tree, or
+[`unist-util-generated`][unist-util-generated] useful to check whether a node is
+considered to be generated (not in the original input file).
+
+You might also enjoy
+[`unist-util-stringify-position`][unist-util-stringify-position] when you want
+to display positional info to users.
 
 ## Install
 
-This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
-Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
-
-[npm][]:
+This package is [ESM only][esm].
+In Node.js (version 12.20+, 14.14+, 16.0+, 18.0+), install with [npm][]:
 
 ```sh
 npm install unist-util-remove-position
 ```
 
+In Deno with [`esm.sh`][esmsh]:
+
+```js
+import {removePosition} from "https://esm.sh/unist-util-remove-position@4"
+```
+
+In browsers with [`esm.sh`][esmsh]:
+
+```html
+<script type="module">
+  import {removePosition} from "https://esm.sh/unist-util-remove-position@4?bundle"
+</script>
+```
+
 ## Use
 
 ```js
-import remark from 'remark'
+import {fromMarkdown} from 'mdast-util-from-markdown'
 import {removePosition} from 'unist-util-remove-position'
 
-const tree = remark().parse('Some _emphasis_, **importance**, and `code`.')
+const tree = fromMarkdown('Some _emphasis_, **importance**, and `code`.')
 
 removePosition(tree, true)
 
@@ -58,22 +106,35 @@ Yields:
 
 ## API
 
-This package exports the following identifiers: `removePosition`.
+This package exports the identifier `removePosition`.
 There is no default export.
 
 ### `removePosition(node[, force])`
 
-Remove [`position`][position] fields from [`node`][node].
-If `force` is given, uses `delete`, otherwise, sets `position`s to `undefined`.
+Remove the `position` field from a tree ([`Node`][node]).
+If `force` is given (`boolean`, default: `false`), uses `delete` to remove the
+field entirely, otherwise it’s set to `undefined`.
 
 ###### Returns
 
-The given `node`.
+The given, modified, `node` ([`Node`][node]).
+
+## Types
+
+This package is fully typed with [TypeScript][].
+It exports no additional types.
+
+## Compatibility
+
+Projects maintained by the unified collective are compatible with all maintained
+versions of Node.js.
+As of now, that is Node.js 12.20+, 14.14+, 16.0+, and 18.0+.
+Our projects sometimes work with older versions, but this is not guaranteed.
 
 ## Contribute
 
-See [`contributing.md` in `syntax-tree/.github`][contributing] for ways to get
-started.
+See [`contributing.md`][contributing] in [`syntax-tree/.github`][health] for
+ways to get started.
 See [`support.md`][support] for ways to get help.
 
 This project has a [code of conduct][coc].
@@ -114,18 +175,30 @@ abide by its terms.
 
 [npm]: https://docs.npmjs.com/cli/install
 
+[esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
+
+[esmsh]: https://esm.sh
+
+[typescript]: https://www.typescriptlang.org
+
 [license]: license
 
 [author]: https://wooorm.com
 
-[contributing]: https://github.com/syntax-tree/.github/blob/HEAD/contributing.md
+[health]: https://github.com/syntax-tree/.github
 
-[support]: https://github.com/syntax-tree/.github/blob/HEAD/support.md
+[contributing]: https://github.com/syntax-tree/.github/blob/main/contributing.md
 
-[coc]: https://github.com/syntax-tree/.github/blob/HEAD/code-of-conduct.md
+[support]: https://github.com/syntax-tree/.github/blob/main/support.md
+
+[coc]: https://github.com/syntax-tree/.github/blob/main/code-of-conduct.md
 
 [unist]: https://github.com/syntax-tree/unist
 
-[position]: https://github.com/syntax-tree/unist#position
-
 [node]: https://github.com/syntax-tree/unist#node
+
+[unist-util-position]: https://github.com/syntax-tree/unist-util-position
+
+[unist-util-generated]: https://github.com/syntax-tree/unist-util-generated
+
+[unist-util-stringify-position]: https://github.com/syntax-tree/unist-util-stringify-position
