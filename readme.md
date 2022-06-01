@@ -8,7 +8,7 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-[unist][] utility to create a remove positional info from a tree.
+[unist][] utility to remove positional info from a tree.
 
 ## Contents
 
