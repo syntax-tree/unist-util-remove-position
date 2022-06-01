@@ -1,5 +1,5 @@
 import test from 'tape'
-import {remark} from 'remark'
+import {fromMarkdown} from 'mdast-util-from-markdown'
 import {u} from 'unist-builder'
 import {removePosition} from './index.js'
 
@@ -7,7 +7,7 @@ test('removePosition()', (t) => {
   const empty = {position: undefined}
 
   t.same(
-    removePosition(remark().parse('Some **strong**, _emphasis_, and `code`.')),
+    removePosition(fromMarkdown('Some **strong**, _emphasis_, and `code`.')),
     u('root', empty, [
       u('paragraph', empty, [
         u('text', empty, 'Some '),
@@ -24,7 +24,7 @@ test('removePosition()', (t) => {
 
   t.same(
     removePosition(
-      remark().parse('Some **strong**, _emphasis_, and `code`.'),
+      fromMarkdown('Some **strong**, _emphasis_, and `code`.'),
       true
     ),
     u('root', [
