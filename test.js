@@ -1,5 +1,5 @@
 import test from 'tape'
-import remark from 'remark'
+import {remark} from 'remark'
 import {u} from 'unist-builder'
 import {removePosition} from './index.js'
 

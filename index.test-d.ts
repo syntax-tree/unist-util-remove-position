@@ -1,7 +1,7 @@
 import {expectType} from 'tsd'
 import {Node} from 'unist'
 import {Root} from 'mdast'
-import remark from 'remark'
+import {remark} from 'remark'
 import {removePosition} from './index.js'
 
 const tree: Root = {type: 'root', children: []}
