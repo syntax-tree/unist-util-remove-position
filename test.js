@@ -48,4 +48,10 @@ test('removePosition', () => {
     ]),
     'should work by force'
   )
+
+  assert.deepEqual(
+    removePosition(fromMarkdown('x'), {force: true}),
+    u('root', [u('paragraph', [u('text', 'x')])]),
+    'should support options'
+  )
 })
