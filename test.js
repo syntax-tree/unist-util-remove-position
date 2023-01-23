@@ -3,8 +3,15 @@ import test from 'node:test'
 import {fromMarkdown} from 'mdast-util-from-markdown'
 import {u} from 'unist-builder'
 import {removePosition} from './index.js'
+import * as mod from './index.js'
 
-test('removePosition()', () => {
+test('removePosition', () => {
+  assert.deepEqual(
+    Object.keys(mod).sort(),
+    ['removePosition'],
+    'should expose the public api'
+  )
+
   const empty = {position: undefined}
 
   assert.deepEqual(
