@@ -17,7 +17,8 @@
 *   [Install](#install)
 *   [Use](#use)
 *   [API](#api)
-    *   [`removePosition(node[, force])`](#removepositionnode-force)
+    *   [`removePosition(node[, force|options])`](#removepositionnode-forceoptions)
+    *   [`Options`](#options)
 *   [Types](#types)
 *   [Compatibility](#compatibility)
 *   [Contribute](#contribute)
@@ -49,7 +50,7 @@ to display positional info to users.
 ## Install
 
 This package is [ESM only][esm].
-In Node.js (version 12.20+, 14.14+, 16.0+, 18.0+), install with [npm][]:
+In Node.js (version 14.14+ and 16.0+), install with [npm][]:
 
 ```sh
 npm install unist-util-remove-position
@@ -58,14 +59,14 @@ npm install unist-util-remove-position
 In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import {removePosition} from "https://esm.sh/unist-util-remove-position@4"
+import {removePosition} from 'https://esm.sh/unist-util-remove-position@4'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import {removePosition} from "https://esm.sh/unist-util-remove-position@4?bundle"
+  import {removePosition} from 'https://esm.sh/unist-util-remove-position@4?bundle'
 </script>
 ```
 
@@ -77,7 +78,7 @@ import {removePosition} from 'unist-util-remove-position'
 
 const tree = fromMarkdown('Some _emphasis_, **importance**, and `code`.')
 
-removePosition(tree, true)
+removePosition(tree, {force: true})
 
 console.dir(tree, {depth: null})
 ```
@@ -106,29 +107,46 @@ Yields:
 
 ## API
 
-This package exports the identifier `removePosition`.
+This package exports the identifier [`removePosition`][removeposition].
 There is no default export.
 
-### `removePosition(node[, force])`
+### `removePosition(node[, force|options])`
 
-Remove the `position` field from a tree ([`Node`][node]).
-If `force` is given (`boolean`, default: `false`), uses `delete` to remove the
-field entirely, otherwise it’s set to `undefined`.
+Remove the `position` field from a tree.
+
+###### Parameters
+
+*   `node` ([`Node`][node])
+    — tree to clean
+*   `force` (`boolean`)
+    — equivalent to `{force: boolean}`
+*   `options` ([`Options`][options], optional)
+    — configuration
 
 ###### Returns
 
-The given, modified, `node` ([`Node`][node]).
+The given, modified, `tree` ([`Node`][node]).
+
+### `Options`
+
+Configuration (TypeScript type).
+
+###### Fields
+
+*   `force` (`boolean`, default: `false`)
+    — whether to use `delete` to remove `position` fields, the default is to
+    set them to `undefined`
 
 ## Types
 
 This package is fully typed with [TypeScript][].
-It exports no additional types.
+It exports the additional type [`Options`][options].
 
 ## Compatibility
 
 Projects maintained by the unified collective are compatible with all maintained
 versions of Node.js.
-As of now, that is Node.js 12.20+, 14.14+, 16.0+, and 18.0+.
+As of now, that is Node.js 14.14+ and 16.0+.
 Our projects sometimes work with older versions, but this is not guaranteed.
 
 ## Contribute
@@ -202,3 +220,7 @@ abide by its terms.
 [unist-util-generated]: https://github.com/syntax-tree/unist-util-generated
 
 [unist-util-stringify-position]: https://github.com/syntax-tree/unist-util-stringify-position
+
+[removeposition]: #removepositionnode-forceoptions
+
+[options]: #options
