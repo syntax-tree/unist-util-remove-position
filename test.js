@@ -1,12 +1,13 @@
-import test from 'tape'
+import assert from 'node:assert/strict'
+import test from 'node:test'
 import {fromMarkdown} from 'mdast-util-from-markdown'
 import {u} from 'unist-builder'
 import {removePosition} from './index.js'
 
-test('removePosition()', (t) => {
+test('removePosition()', () => {
   const empty = {position: undefined}
 
-  t.same(
+  assert.deepEqual(
     removePosition(fromMarkdown('Some **strong**, _emphasis_, and `code`.')),
     u('root', empty, [
       u('paragraph', empty, [
@@ -22,7 +23,7 @@ test('removePosition()', (t) => {
     'should work softly'
   )
 
-  t.same(
+  assert.deepEqual(
     removePosition(
       fromMarkdown('Some **strong**, _emphasis_, and `code`.'),
       true
@@ -40,6 +41,4 @@ test('removePosition()', (t) => {
     ]),
     'should work by force'
   )
-
-  t.end()
 })
