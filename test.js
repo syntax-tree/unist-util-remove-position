@@ -3,55 +3,57 @@ import test from 'node:test'
 import {fromMarkdown} from 'mdast-util-from-markdown'
 import {u} from 'unist-builder'
 import {removePosition} from './index.js'
-import * as mod from './index.js'
 
-test('removePosition', () => {
-  assert.deepEqual(
-    Object.keys(mod).sort(),
-    ['removePosition'],
-    'should expose the public api'
-  )
+test('removePosition', async function (t) {
+  await t.test('should expose the public api', async function () {
+    assert.deepEqual(Object.keys(await import('./index.js')).sort(), [
+      'removePosition'
+    ])
+  })
 
-  const empty = {position: undefined}
+  await t.test('should work softly', async function () {
+    const empty = {position: undefined}
 
-  assert.deepEqual(
-    removePosition(fromMarkdown('Some **strong**, _emphasis_, and `code`.')),
-    u('root', empty, [
-      u('paragraph', empty, [
-        u('text', empty, 'Some '),
-        u('strong', empty, [u('text', empty, 'strong')]),
-        u('text', empty, ', '),
-        u('emphasis', empty, [u('text', empty, 'emphasis')]),
-        u('text', empty, ', and '),
-        u('inlineCode', empty, 'code'),
-        u('text', empty, '.')
+    assert.deepEqual(
+      removePosition(fromMarkdown('Some **strong**, _emphasis_, and `code`.')),
+      u('root', empty, [
+        u('paragraph', empty, [
+          u('text', empty, 'Some '),
+          u('strong', empty, [u('text', empty, 'strong')]),
+          u('text', empty, ', '),
+          u('emphasis', empty, [u('text', empty, 'emphasis')]),
+          u('text', empty, ', and '),
+          u('inlineCode', empty, 'code'),
+          u('text', empty, '.')
+        ])
       ])
-    ]),
-    'should work softly'
-  )
+    )
+  })
 
-  assert.deepEqual(
-    removePosition(
-      fromMarkdown('Some **strong**, _emphasis_, and `code`.'),
-      true
-    ),
-    u('root', [
-      u('paragraph', [
-        u('text', 'Some '),
-        u('strong', [u('text', 'strong')]),
-        u('text', ', '),
-        u('emphasis', [u('text', 'emphasis')]),
-        u('text', ', and '),
-        u('inlineCode', 'code'),
-        u('text', '.')
+  await t.test('should work by force', async function () {
+    assert.deepEqual(
+      removePosition(
+        fromMarkdown('Some **strong**, _emphasis_, and `code`.'),
+        true
+      ),
+      u('root', [
+        u('paragraph', [
+          u('text', 'Some '),
+          u('strong', [u('text', 'strong')]),
+          u('text', ', '),
+          u('emphasis', [u('text', 'emphasis')]),
+          u('text', ', and '),
+          u('inlineCode', 'code'),
+          u('text', '.')
+        ])
       ])
-    ]),
-    'should work by force'
-  )
+    )
+  })
 
-  assert.deepEqual(
-    removePosition(fromMarkdown('x'), {force: true}),
-    u('root', [u('paragraph', [u('text', 'x')])]),
-    'should support options'
-  )
+  await t.test('should support options', async function () {
+    assert.deepEqual(
+      removePosition(fromMarkdown('x'), {force: true}),
+      u('root', [u('paragraph', [u('text', 'x')])])
+    )
+  })
 })
