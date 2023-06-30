@@ -50,7 +50,7 @@ to display positional info to users.
 ## Install
 
 This package is [ESM only][esm].
-In Node.js (version 14.14+ and 16.0+), install with [npm][]:
+In Node.js (version 16+), install with [npm][]:
 
 ```sh
 npm install unist-util-remove-position
@@ -144,10 +144,13 @@ It exports the additional type [`Options`][options].
 
 ## Compatibility
 
-Projects maintained by the unified collective are compatible with all maintained
+Projects maintained by the unified collective are compatible with maintained
 versions of Node.js.
-As of now, that is Node.js 14.14+ and 16.0+.
-Our projects sometimes work with older versions, but this is not guaranteed.
+
+When we cut a new major release, we drop support for unmaintained versions of
+Node.
+This means we try to keep the current release line,
+`unist-util-remove-position@^4`, compatible with Node.js 12.
 
 ## Contribute
 
@@ -177,9 +180,9 @@ abide by its terms.
 
 [downloads]: https://www.npmjs.com/package/unist-util-remove-position
 
-[size-badge]: https://img.shields.io/bundlephobia/minzip/unist-util-remove-position.svg
+[size-badge]: https://img.shields.io/badge/dynamic/json?label=minzipped%20size&query=$.size.compressedSize&url=https://deno.bundlejs.com/?q=unist-util-remove-position
 
-[size]: https://bundlephobia.com/result?p=unist-util-remove-position
+[size]: https://bundlejs.com/?q=unist-util-remove-position
 
 [sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
 
