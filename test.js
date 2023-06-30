@@ -2,13 +2,14 @@ import assert from 'node:assert/strict'
 import test from 'node:test'
 import {fromMarkdown} from 'mdast-util-from-markdown'
 import {u} from 'unist-builder'
-import {removePosition} from './index.js'
+import {removePosition} from 'unist-util-remove-position'
 
 test('removePosition', async function (t) {
   await t.test('should expose the public api', async function () {
-    assert.deepEqual(Object.keys(await import('./index.js')).sort(), [
-      'removePosition'
-    ])
+    assert.deepEqual(
+      Object.keys(await import('unist-util-remove-position')).sort(),
+      ['removePosition']
+    )
   })
 
   await t.test('should work softly', async function () {
