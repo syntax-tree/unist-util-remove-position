@@ -14,8 +14,11 @@ test('removePosition', async function (t) {
   await t.test('should work softly', async function () {
     const empty = {position: undefined}
 
+    const root = fromMarkdown('Some **strong**, _emphasis_, and `code`.')
+    removePosition(root)
+
     assert.deepEqual(
-      removePosition(fromMarkdown('Some **strong**, _emphasis_, and `code`.')),
+      root,
       u('root', empty, [
         u('paragraph', empty, [
           u('text', empty, 'Some '),
@@ -31,10 +34,12 @@ test('removePosition', async function (t) {
   })
 
   await t.test('should work by force', async function () {
+    const root = fromMarkdown('Some **strong**, _emphasis_, and `code`.')
+
+    removePosition(root, {force: true})
+
     assert.deepEqual(
-      removePosition(fromMarkdown('Some **strong**, _emphasis_, and `code`.'), {
-        force: true
-      }),
+      root,
       u('root', [
         u('paragraph', [
           u('text', 'Some '),
@@ -50,9 +55,9 @@ test('removePosition', async function (t) {
   })
 
   await t.test('should support options', async function () {
-    assert.deepEqual(
-      removePosition(fromMarkdown('x'), {force: true}),
-      u('root', [u('paragraph', [u('text', 'x')])])
-    )
+    const root = fromMarkdown('x')
+    removePosition(root, {force: true})
+
+    assert.deepEqual(root, u('root', [u('paragraph', [u('text', 'x')])]))
   })
 })

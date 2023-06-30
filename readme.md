@@ -123,7 +123,7 @@ Remove the `position` field from a tree.
 
 ###### Returns
 
-The given, modified, `tree` ([`Node`][node]).
+Nothing (`undefined`).
 
 ### `Options`
 
