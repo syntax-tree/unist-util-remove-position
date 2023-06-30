@@ -17,7 +17,7 @@
 *   [Install](#install)
 *   [Use](#use)
 *   [API](#api)
-    *   [`removePosition(node[, force|options])`](#removepositionnode-forceoptions)
+    *   [`removePosition(node[, options])`](#removepositionnode-options)
     *   [`Options`](#options)
 *   [Types](#types)
 *   [Compatibility](#compatibility)
@@ -110,7 +110,7 @@ Yields:
 This package exports the identifier [`removePosition`][removeposition].
 There is no default export.
 
-### `removePosition(node[, force|options])`
+### `removePosition(node[, options])`
 
 Remove the `position` field from a tree.
 
@@ -118,8 +118,6 @@ Remove the `position` field from a tree.
 
 *   `node` ([`Node`][node])
     — tree to clean
-*   `force` (`boolean`)
-    — equivalent to `{force: boolean}`
 *   `options` ([`Options`][options], optional)
     — configuration
 
@@ -224,6 +222,6 @@ abide by its terms.
 
 [unist-util-stringify-position]: https://github.com/syntax-tree/unist-util-stringify-position
 
-[removeposition]: #removepositionnode-forceoptions
+[removeposition]: #removepositionnode-options
 
 [options]: #options

@@ -32,10 +32,9 @@ test('removePosition', async function (t) {
 
   await t.test('should work by force', async function () {
     assert.deepEqual(
-      removePosition(
-        fromMarkdown('Some **strong**, _emphasis_, and `code`.'),
-        true
-      ),
+      removePosition(fromMarkdown('Some **strong**, _emphasis_, and `code`.'), {
+        force: true
+      }),
       u('root', [
         u('paragraph', [
           u('text', 'Some '),
