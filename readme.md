@@ -59,14 +59,14 @@ npm install unist-util-remove-position
 In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import {removePosition} from 'https://esm.sh/unist-util-remove-position@4'
+import {removePosition} from 'https://esm.sh/unist-util-remove-position@5'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import {removePosition} from 'https://esm.sh/unist-util-remove-position@4?bundle'
+  import {removePosition} from 'https://esm.sh/unist-util-remove-position@5?bundle'
 </script>
 ```
 
